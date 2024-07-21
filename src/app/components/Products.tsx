@@ -10,7 +10,7 @@ const Products = async () => {
   const products: Product[] = await response.json();
 
   return (
-    <section className="flex flex-col items-center justify-center gap-5 py-10 px-4">
+    <section className="flex flex-col items-center justify-center gap-5 pt-10 pb-20 px-4">
       <h1 className="bg-black text-2xl px-10 py-2 text-white">
         Shopping everyday
       </h1>
@@ -21,7 +21,7 @@ const Products = async () => {
         and convenience like never before. Elevate your everyday with us!
       </p>
 
-      <div className="mt-6 max-w-screen-xl grid gap-10 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="mt-6 max-w-screen-xl grid gap-6 grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {products.map((product) => {
           return <ProductCard key={uid(product)} product={product} />;
         })}

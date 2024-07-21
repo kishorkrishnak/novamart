@@ -1,6 +1,7 @@
 import React from "react";
 import { Product } from "../../types/product";
 import Image from "next/image";
+import Link from "next/link";
 
 interface ProductCardProps {
   product: Product;
@@ -8,26 +9,27 @@ interface ProductCardProps {
 
 const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
   return (
-    <div className="border p-4 rounded-lg flex flex-col gap-4">
+    <Link
+      href={`/products/${product.id}`}
+      className="border rounded-lg flex flex-col overflow-hidden"
+    >
       <Image
         src={product.image}
         alt={product.title}
         width={500}
         height={500}
-        layout="responsive"
-        className="w-full h-48 object-cover"
+        className="p-2 h-56 w-full object-contain scale-100 hover:scale-110 duration-300"
       />
 
-      <div>
+      <div className="p-4">
         <h2 className="text-base font-bold">{product.title}</h2>
-        <p className="text-gray-900">${product.price}</p>
         <div className="flex items-center">
           <span className="text-yellow-500">★</span>
           <span>{product.rating.rate}</span>
-        
         </div>
+        <p className="text-gray-900 font-bold">${product.price}</p>
       </div>
-    </div>
+    </Link>
   );
 };
 
