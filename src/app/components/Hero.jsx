@@ -1,6 +1,7 @@
 "use client";
 import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
 import React, { useState } from "react";
+import getBannerData from "@/utils/getBannerData";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,16 +12,13 @@ const Hero = () => {
   const decrementSlide = () => {
     setCurrentSlide(currentSlide === 3 ? 0 : (prev) => prev + 1);
   };
-  const banners = [
-    "https://amazonproone.vercel.app/static/media/img2.bc1bdb910ead16c65197.jpg",
-    "https://amazonproone.vercel.app/static/media/img5.aa945e25375bfdee385f.jpg",
-  ];
+  const banners = getBannerData();
   return (
     <div
       style={{
         backgroundImage: `url('${banners[currentSlide]}')`,
       }}
-      className="h-[35vh] md:h-[100vh] bg-center bg-cover relative"
+      className="h-[35vh] md:h-[calc(100vh-80px)] bg-center bg-cover relative"
     >
       <div className="flex items-center justify-center gap-6 absolute bottom-[18%] md:bottom-[30%] left-0 right-0 ">
         <div

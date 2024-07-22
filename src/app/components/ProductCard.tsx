@@ -18,11 +18,11 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         alt={product.title}
         width={500}
         height={500}
-        className="p-2 h-56 w-full object-contain scale-100 hover:scale-110 duration-300"
+        className="p-2 h-32 md:h-56 w-full object-contain scale-100 hover:scale-110 duration-300"
       />
 
-      <div className="p-4">
-        <h2 className="text-base font-bold">{product.title}</h2>
+      <div className="p-4 text-xs md:text-base">
+        <h2 className="font-bold">{product.title}</h2>
         <div className="flex items-center">
           <span className="text-yellow-500">★</span>
           <span>{product.rating.rate}</span>
