@@ -1,6 +1,6 @@
-import PageTitle from "@/app/components/PageTitle";
 import { Product } from "@/types/product";
 import Image from "next/image";
+import QuantitySelector from "./QuantitySelector";
 
 interface ProductProps {
   params: {
@@ -14,23 +14,18 @@ const ProductPage = async ({ params: { id } }: ProductProps) => {
   });
   const product: Product = await response.json();
   return (
-    <main className="relative py-20 flex flex-col items-center justify-center min-h-[calc(100vh-160px)]">
-      <PageTitle title={"Product"} />
-
-      <div className="mx-auto max-w-screen-xl gap-10 flex justify-between items-center">
+    <main className="relative py-20 flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-4">
+      <div className="mx-auto max-w-screen-xl gap-12 flex flex-col lg:flex-row justify-between items-center">
         <Image src={product.image} alt="logo" width={500} height={500} />
 
         <div className="flex flex-col items-start justify-center gap-8">
           <div>
             <h1 className="font-bold text-3xl">{product.title}</h1>
-            <p className="font-bold">${product.price}</p>
+            <p className="font-bold mt-2">${product.price}</p>
           </div>
-          <p className="font-medium text-lg">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nulla non
-            magni facili blanditiis molestias soluta eveniet illum accusantium
-            eius mollitia eligendi, ex iste doloribus magnam.
-          </p>
+          <p className="font-medium text-lg">{product.description}</p>
           <div className="flex items-center justify-center gap-4">
+            <QuantitySelector />
             <button className="btn btn-neutral text-base text-white px-6">
               Add to cart
             </button>
