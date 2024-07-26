@@ -20,7 +20,7 @@ const SignInButton = () => {
     const user = result.user;
     dispatch(
       setUser({
-        _id: user.uid,
+        id: user.uid,
         name: user.displayName,
         email: user.email,
         photo: user.photoURL,

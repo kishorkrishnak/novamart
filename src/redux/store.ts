@@ -27,7 +27,7 @@ const storage =
 const novaPersistConfig = {
   key: "root",
   storage: storage,
-  whitelist: ["user"],
+  whitelist: ["user","cartItems","orderHistory"],
 };
 
 const persistedReducer = persistReducer(novaPersistConfig, novaReducer);

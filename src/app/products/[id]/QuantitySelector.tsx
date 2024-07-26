@@ -1,27 +1,54 @@
 "use client";
 
+import {
+  addToCart,
+  decrementQuantity,
+  incrementQuantity,
+} from "@/redux/novaSlice";
+import { useAppDispatch } from "@/redux/store";
 import React, { useState } from "react";
+import { Product } from "@/types/product";
+import toast from "react-hot-toast";
 
-const QuantitySelector = () => {
-  const [quantity, setQuantity] = useState<number>(1);
+const QuantitySelector = ({
+  product,
+  showAddToCart,
+  showQuantityText,
+}: {
+  product: Product;
+  showAddToCart: boolean;
+  showQuantityText: boolean;
+}) => {
+  const dispatch = useAppDispatch();
+  const [quantity, setQuantity] = useState<number>(product.quantity || 1);
 
   const handleDecrease = () => {
-    setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+    if (showAddToCart) {
+      setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+    } else if (quantity > 1) dispatch(decrementQuantity(product.id));
   };
 
   const handleIncrease = () => {
-    setQuantity((prev) => prev + 1);
+    if (showAddToCart) {
+      setQuantity((prev) => prev + 1);
+    } else dispatch(incrementQuantity(product.id));
   };
 
+  const handleAddToCart = () => {
+    dispatch(addToCart({ ...product, quantity }));
+    toast.success("Product added to cart");
+  };
   return (
     <div className="flex items-center justify-center gap-4">
       <div className="py-3 px-3 bg-white border border-gray-200 rounded-lg">
         <div className="w-full flex justify-between items-center gap-x-5">
-          <div className="grow">
-            <span className="block text-sm md:text-base text-gray-400">
-              Quantity
-            </span>
-          </div>
+          {showQuantityText ? (
+            <div className="grow">
+              <span className="block text-sm md:text-base text-gray-400">
+                Quantity
+              </span>
+            </div>
+          ) : null}
           <div className="flex justify-end items-center gap-x-3">
             <button
               type="button"
@@ -70,9 +97,14 @@ const QuantitySelector = () => {
           </div>
         </div>
       </div>
-      <button className="btn btn-neutral text-base text-white px-6">
-        Add to cart
-      </button>
+      {showAddToCart ? (
+        <button
+          onClick={handleAddToCart}
+          className="btn btn-neutral text-base text-white px-6"
+        >
+          Add to cart
+        </button>
+      ) : null}
     </div>
   );
 };

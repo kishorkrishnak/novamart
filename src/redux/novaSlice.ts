@@ -1,18 +1,17 @@
+import { Product } from "@/types/product";
+import { User } from "@/types/user";
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
-
-interface User {
-  _id: number;
-  name: string;
-  email: string;
-  photo: string;
-}
 
 interface NovaState {
   user: User | null;
+  cartItems: Product[];
+  orderHistory: Product[];
 }
 
 const initialState: NovaState = {
   user: null,
+  cartItems: [],
+  orderHistory: [],
 };
 
 const novaSlice = createSlice({
@@ -25,9 +24,58 @@ const novaSlice = createSlice({
     clearUser: (state) => {
       state.user = null;
     },
+
+    addToCart: (state, action: PayloadAction<Product>) => {
+      const payload = action.payload;
+      const item = state.cartItems.find((item) => item.id === payload.id);
+      if (item) item.quantity = payload.quantity;
+      else state.cartItems.push(payload);
+    },
+
+    removeFromCart: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      state.cartItems = state.cartItems.filter((item) => item.id !== productId);
+    },
+
+    incrementQuantity: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      const product = state.cartItems.find((item) => item.id === productId);
+      if (product) product.quantity += 1;
+    },
+
+    decrementQuantity: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      const product = state.cartItems.find((item) => item.id === productId);
+      if (product) product.quantity -= 1;
+    },
+
+    clearCart: (state) => {
+      state.cartItems = [];
+    },
+    addToOrderHistory: (state, action: PayloadAction<Product[]>) => {
+      const payload = action.payload;
+      state.orderHistory = [...state.orderHistory, ...payload];
+    },
+
+    removeFromOrderHistory: (state, action: PayloadAction<number>) => {
+      const productId = action.payload;
+      state.orderHistory = state.orderHistory.filter(
+        (item) => item.id !== productId
+      );
+    },
   },
 });
 
-export const { setUser, clearUser } = novaSlice.actions;
+export const {
+  setUser,
+  clearUser,
+  addToCart,
+  removeFromCart,
+  clearCart,
+  incrementQuantity,
+  decrementQuantity,
+  addToOrderHistory,
+  removeFromOrderHistory,
+} = novaSlice.actions;
 
 export default novaSlice.reducer;
