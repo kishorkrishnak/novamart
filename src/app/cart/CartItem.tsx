@@ -1,10 +1,9 @@
-import React from "react";
-import { Product } from "../../types/product";
-import Image from "next/image";
-import QuantitySelector from "../products/[id]/QuantitySelector";
-import { MdClose } from "react-icons/md";
-import { useAppDispatch } from "@/redux/store";
 import { removeFromCart } from "@/redux/novaSlice";
+import { useAppDispatch } from "@/redux/store";
+import Image from "next/image";
+import { MdClose } from "react-icons/md";
+import { Product } from "../../types/product";
+import QuantitySelector from "../products/[id]/QuantitySelector";
 
 const CartItem = ({ product }: { product: Product }) => {
   const dispatch = useAppDispatch();

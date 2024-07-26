@@ -1,8 +1,6 @@
 import { Product } from "@/types/product";
 import Image from "next/image";
 import QuantitySelector from "./QuantitySelector";
-import { useAppDispatch } from "@/redux/store";
-import { addToCart } from "@/redux/novaSlice";
 
 interface ProductProps {
   params: {
@@ -11,8 +9,6 @@ interface ProductProps {
 }
 
 const ProductPage = async ({ params: { id } }: ProductProps) => {
-  // const dispatch = useAppDispatch()
-
   const response = await fetch(`https://fakestoreapi.com/products/${id}`, {
     next: { revalidate: 1000 },
   });

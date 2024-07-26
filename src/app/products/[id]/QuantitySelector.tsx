@@ -5,7 +5,7 @@ import {
   decrementQuantity,
   incrementQuantity,
 } from "@/redux/novaSlice";
-import { useAppDispatch } from "@/redux/store";
+import { useAppDispatch, useAppSelector } from "@/redux/store";
 import React, { useState } from "react";
 import { Product } from "@/types/product";
 import toast from "react-hot-toast";
@@ -35,6 +35,7 @@ const QuantitySelector = ({
   };
 
   const handleAddToCart = () => {
+    
     dispatch(addToCart({ ...product, quantity }));
     toast.success("Product added to cart");
   };

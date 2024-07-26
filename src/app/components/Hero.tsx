@@ -1,7 +1,7 @@
 "use client";
-import { HiArrowRight, HiArrowLeft } from "react-icons/hi";
-import React, { useState } from "react";
 import getBannerData from "@/utils/getBannerData";
+import { useState } from "react";
+import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 
 const Hero = () => {
   const [currentSlide, setCurrentSlide] = useState(0);
