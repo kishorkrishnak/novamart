@@ -31,7 +31,7 @@ export default function Cart() {
     <main className="py-20 relative flex flex-col items-center justify-center min-h-[calc(100vh-160px)] px-2">
       <PageTitle title={"Your Cart"} />
 
-      <div className="w-full max-w-screen-xl flex flex-col lg:flex-row items-start gap-6 lg:gap-20 justify-around w-full">
+      <div className="w-full max-w-screen-xl flex flex-col lg:flex-row items-start gap-6 lg:gap-10 justify-around w-full">
         <div className="w-full flex flex-col items-center justify-start gap-6">
           {cartItems.length > 0 ? (
             <>

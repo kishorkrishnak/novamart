@@ -5,7 +5,7 @@ import ReduxProvider from "../redux/reduxProvider";
 import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./globals.css";
-const nunito = Nunito_Sans({ subsets: ["latin"] });
+const nunito = Nunito_Sans({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
   title: "NovaMart",

@@ -9,7 +9,7 @@ import { userAgent } from "next/server";
 
 const SignoutButton = () => {
   const dispatch = useAppDispatch();
-  const { name, photo, email } = useAppSelector((state) => state.nova.user);
+  const user = useAppSelector((state) => state.nova.user);
   const handleSignOut = async () => {
     await signOut(auth);
     dispatch(clearUser());
@@ -20,15 +20,15 @@ const SignoutButton = () => {
       <div className="flex flex-col items-center justify-center gap-3">
         <Image
           className="rounded-full"
-          src={photo}
+          src={user?.photo || "/images/defaultuserprofile.webp"}
           alt="logo"
           width="200"
           height="13"
         />
-     <div className="text-center">
-     <h1 className="text-base md:text-lg font-semibold">{name}</h1>
-     <h1 className="text-base md:text-lg font-medium">{email}</h1>
-     </div>
+        <div className="text-center">
+          <h1 className="text-base md:text-lg font-semibold">{user?.name}</h1>
+          <h1 className="text-base md:text-lg font-medium">{user?.email}</h1>
+        </div>
       </div>
       <button
         onClick={handleSignOut}
