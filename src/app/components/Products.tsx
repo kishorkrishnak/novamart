@@ -2,6 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard";
 import { Product } from "@/types/product";
 import { uid } from "react-uid";
+
 const Products = async () => {
   const response = await fetch("https://fakestoreapi.com/products");
   const products: Product[] = await response.json();

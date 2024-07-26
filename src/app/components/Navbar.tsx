@@ -1,7 +1,18 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { useAppSelector } from "@/redux/store";
 import Image from "next/image";
 import Link from "next/link";
 
 const Navbar = () => {
+  const user = useAppSelector((state) => state.nova.user);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
   return (
     <nav className="bg-white py-1 border border-b-black px-4 sticky top-0 z-50">
       <div className="mx-auto max-w-screen-xl flex justify-between items-center">
@@ -26,7 +37,7 @@ const Navbar = () => {
             <Link href={"/cart"}>
               <Image
                 src="/images/cart.svg"
-                alt="logo"
+                alt="cart"
                 width="0"
                 height="0"
                 className="w-6 h-auto"
@@ -36,15 +47,20 @@ const Navbar = () => {
           <li>
             <Link href={"/login"}>
               <div className="flex items-center justify-center gap-2">
-                <Image
-                  src="/images/defaultuserprofile.webp"
-                  alt="logo"
-                  width={30}
-                  height={30}
-                  className="rounded-full"
-                />
-
-                <p className="font-bold text-sm">Login</p>
+                {isMounted && (
+                  <>
+                    <Image
+                      src={user?.photo || "/images/defaultuserprofile.webp"}
+                      alt="user profile"
+                      width={30}
+                      height={30}
+                      className="rounded-full"
+                    />
+                    <p className="font-bold text-sm">
+                      {user?.name || "Login"}
+                    </p>
+                  </>
+                )}
               </div>
             </Link>
           </li>

@@ -1,19 +1,28 @@
-import Image from "next/image";
-import SignoutButton from "./SignoutButton";
-import PageTitle from "../components/PageTitle";
+"use client";
 
-const LoginPage = async () => {
+import { useEffect, useState } from "react";
+import { useAppSelector } from "@/redux/store";
+import PageTitle from "../components/PageTitle";
+import SignInButton from "./SignInButton";
+import SignoutButton from "./SignoutButton";
+
+const LoginPage = () => {
+  const user = useAppSelector((state) => state.nova.user);
+  const [isClient, setIsClient] = useState(false);
+
+  useEffect(() => {
+    setIsClient(true);
+  }, []);
+
+  if (!isClient) {
+    return null;
+  }
+
   return (
     <main className="flex relative flex-col items-center justify-center min-h-[calc(100vh-160px)]">
       <PageTitle title={"Login"} />
-
       <div className="flex flex-col md:flex-row gap-6">
-        <div className="cursor-pointer flex items-center justify-center gap-2 border border-black hover:border-blue-600 rounded-md px-4">
-          <Image src="/images/google.svg" alt="logo" width={46} height={46} />
-          <p className="font-medium">Sign in with Google</p>
-        </div>
-
-        <SignoutButton />
+        {user ? <SignoutButton /> : <SignInButton />}
       </div>
     </main>
   );

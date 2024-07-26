@@ -24,13 +24,7 @@ const ProductPage = async ({ params: { id } }: ProductProps) => {
             <p className="font-bold mt-2">${product.price}</p>
           </div>
           <p className="font-medium text-lg">{product.description}</p>
-          <div className="flex items-center justify-center gap-4">
-            <QuantitySelector />
-            <button className="btn btn-neutral text-base text-white px-6">
-              Add to cart
-            </button>
-          </div>
-
+          <QuantitySelector />
           <p className="font-medium text-lg">
             Category: <span className="font-bold">{product.category}</span>
           </p>

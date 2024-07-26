@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import { Inter, Nunito_Sans } from "next/font/google";
-import "./globals.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import { Nunito_Sans } from "next/font/google";
 import { Toaster } from "react-hot-toast";
-
+import ReduxProvider from "../redux/reduxProvider";
+import Footer from "./components/Footer";
+import Navbar from "./components/Navbar";
+import "./globals.css";
 const nunito = Nunito_Sans({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -18,14 +18,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" data-theme="winter">
-      <body className={nunito.className}>
-        <Navbar />
-        {children}
-        <Footer />
+    <ReduxProvider>
+      <html lang="en" data-theme="winter">
+        <body className={nunito.className}>
+          <Navbar />
+          {children}
+          <Footer />
 
-        <Toaster position="top-center" reverseOrder={false} />
-      </body>
-    </html>
+          <Toaster position="top-center" reverseOrder={false} />
+        </body>
+      </html>
+    </ReduxProvider>
   );
 }

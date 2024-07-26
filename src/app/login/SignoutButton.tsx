@@ -1,8 +1,16 @@
 "use client";
 
+import { useAppDispatch } from "@/redux/store";
+import { auth, signOut } from "../../config/firebase.config";
+import { clearUser, setUser } from "@/redux/novaSlice";
+import toast from "react-hot-toast";
+
 const SignoutButton = () => {
+  const dispatch = useAppDispatch();
   const handleSignOut = async () => {
-    console.log("sign ouyt succesfull");
+    await signOut(auth);
+    dispatch(clearUser());
+    toast.success("Logout Successfull")
   };
   return (
     <button
