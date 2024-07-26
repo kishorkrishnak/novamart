@@ -30,7 +30,7 @@ const OrderItem = ({ product }: { product: Product }) => {
         className="w-24 sm:w-32"
       />
       <div className="md:pr-6 gap-2 md:gap-0 grid grids-cols-1 md:grid-cols-3 place-items-start md:place-items-between w-full">
-        <h1 className="md:mr-auto">{product.title}</h1>
+        <h1 className="md:mr-auto line-clamp-2">{product.title}</h1>
 
         <p className="text-gray-900 font-semibold md:text-center w-full">
           ${product.price}

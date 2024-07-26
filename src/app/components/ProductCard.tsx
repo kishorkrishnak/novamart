@@ -21,11 +21,18 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         className="p-2 h-32 md:h-56 w-full object-contain scale-100 hover:scale-110 duration-300"
       />
 
-      <div className="p-4 text-xs md:text-base">
-        <h2 className="font-bold">{product.title}</h2>
+      <div className="p-4 text-sm md:text-base flex flex-col items-start justify-center gap-1">
+        <h2 className="font-bold line-clamp-2">{product.title}</h2>
         <div className="flex items-center">
-          <span className="text-yellow-500">★</span>
-          <span>{product.rating.rate}</span>
+          <div className="rating rating-sm">
+            <input
+              type="radio"
+              name="rating-6"
+              className="mask mask-star-2 bg-orange-400"
+            />
+          <span className="ml-1">{product.rating.rate}</span>
+    
+          </div>
         </div>
         <p className="text-gray-900 font-bold">${product.price}</p>
       </div>

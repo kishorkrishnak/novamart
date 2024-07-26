@@ -8,7 +8,7 @@ export default function Home() {
       <Hero />
 
       <div className="flex flex-col items-center justify-center gap-5  px-1 md:px-4 pt-10">
-        <h1 className="bg-black text-2xl px-10 py-2 text-white">
+        <h1 className="bg-black text-2xl px-10 py-2 text-white text-center">
           Shopping everyday
         </h1>
 

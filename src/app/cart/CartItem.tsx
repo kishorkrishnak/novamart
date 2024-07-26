@@ -31,7 +31,7 @@ const CartItem = ({ product }: { product: Product }) => {
       />
 
       <div className="flex flex-col gap-2 items-start justify-center md:justify-between md:w-full">
-        <h1 className="font-semibold">{product.title}</h1>
+        <h1 className="font-semibold line-clamp-2">{product.title}</h1>
         <p className="text-gray-500 text-sm">Category: ${product.category}</p>
 
         <p className="text-gray-900 font-bold text-lg">
