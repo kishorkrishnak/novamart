@@ -14,7 +14,7 @@ const initialState: NovaState = {
   user: null,
   cartItems: [],
   orderHistory: [],
-  selectedCategory: null,
+  selectedCategory: "All",
   selectedPriceRanges: [],
 };
 

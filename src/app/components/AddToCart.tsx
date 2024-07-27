@@ -19,7 +19,7 @@ const AddToCart = ({ product }: { product: Product }) => {
   return (
     <button
       onClick={handleAddToCart}
-      className="hidden font-medium absolute z20 w-[200px] text-gray-500 hover:text-gray-900 lg:flex items-center gap-1 top-0 transform translate-x-32 group-hover:translate-x-0 transition-transform cursor-pointer duration-500"
+      className="font-medium absolute z-20 w-[200px] text-gray-500 hover:text-gray-900 flex items-center gap-1 top-0 transform translate-x-32 group-hover:translate-x-0 transition-transform cursor-pointer duration-500"
     >
       add to cart <BsArrowRight />
     </button>

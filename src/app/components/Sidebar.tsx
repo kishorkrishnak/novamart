@@ -8,7 +8,9 @@ import { uid } from "react-uid";
 const Sidebar = () => {
   const categories = getCategories();
   const priceRanges = getPriceRange();
-const selectedCategory = useAppSelector(state=>state.nova.selectedCategory)
+  const selectedCategory = useAppSelector(
+    (state) => state.nova.selectedCategory
+  );
   const dispatch = useAppDispatch();
 
   return (
@@ -19,7 +21,7 @@ const selectedCategory = useAppSelector(state=>state.nova.selectedCategory)
         <div key={uid(category)} className="form-control">
           <label className="cursor-pointer label justify-start gap-3">
             <input
-            checked = {selectedCategory === category}
+              checked={selectedCategory === category}
               onChange={() => {
                 dispatch(setSelectedCategory(category));
               }}
