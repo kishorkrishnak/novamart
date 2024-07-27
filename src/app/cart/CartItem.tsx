@@ -11,6 +11,7 @@ const CartItem = ({ product }: { product: Product }) => {
     dispatch(removeFromCart(product.id));
   };
 
+  const totalAmount = (product.price * product.quantity).toFixed(2)
   return (
     <div className="relative gap-5 p-2 border border-gray-200 rounded-md  flex items-center justify-start w-full">
       <div
@@ -35,7 +36,7 @@ const CartItem = ({ product }: { product: Product }) => {
 
         <p className="text-gray-900 font-bold text-lg">
           {" "}
-          ${product.price * product.quantity}
+          ${totalAmount}
         </p>
         <QuantitySelector
           product={product}

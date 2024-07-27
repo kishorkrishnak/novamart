@@ -4,9 +4,12 @@ import { useEffect, useState } from "react";
 import { useAppSelector } from "@/redux/store";
 import Image from "next/image";
 import Link from "next/link";
+import { RiShoppingCart2Fill, RiShoppingCart2Line } from "react-icons/ri";
 
 const Navbar = () => {
   const user = useAppSelector((state) => state.nova.user);
+  const cartItems = useAppSelector((state) => state.nova.cartItems);
+
   const [isMounted, setIsMounted] = useState(false);
 
   useEffect(() => {
@@ -35,13 +38,12 @@ const Navbar = () => {
           </li>
           <li>
             <Link href={"/cart"}>
-              <Image
-                src="/images/cart.svg"
-                alt="cart"
-                width="0"
-                height="0"
-                className="w-6 h-auto"
-              />
+              {isMounted &&
+                (cartItems.length > 0 ? (
+                  <RiShoppingCart2Fill size={22} />
+                ) : (
+                  <RiShoppingCart2Line size={22} />
+                ))}
             </Link>
           </li>
           <li>

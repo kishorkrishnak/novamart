@@ -11,6 +11,7 @@ const OrderItem = ({ product }: { product: Product }) => {
   const handleRemoveFromHistory = () => {
     dispatch(removeFromOrderHistory(product.id));
   };
+  const totalAmount = (product.price * product.quantity).toFixed(2);
 
   return (
     <div className="md:pl-6 gap-5 relative p-2 border border-gray-200 rounded-md  flex items-center justify-start w-full">
@@ -41,9 +42,7 @@ const OrderItem = ({ product }: { product: Product }) => {
             Quantity: {product.quantity}
           </p>
 
-          <p className="text-gray-900 font-bold">
-            ${product.price * product.quantity}
-          </p>
+          <p className="text-gray-900 font-bold">${totalAmount}</p>
         </div>
       </div>
     </div>

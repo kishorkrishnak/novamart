@@ -14,7 +14,7 @@ export default function Home() {
               Shopping everyday
             </h1>
 
-            <p className="text-center text-[#4B5563] max-w-screen-sm">
+            <p className="text-center font-medium text-[#4B5563] max-w-screen-sm">
               Revolutionizing your daily life! Our handpicked products
               aren&apos;t just essentials; they&apos;re game-changers. Discover
               innovation, style, and convenience like never before. Elevate your

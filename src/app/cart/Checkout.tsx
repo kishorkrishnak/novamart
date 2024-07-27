@@ -11,6 +11,8 @@ const Checkout = ({ handleClearCart }: { handleClearCart: Function }) => {
 
   const proceedToCheckOut = () => {
     if (!user) return toast.error("You must be logged in");
+    if (cartItems.length < 1) return toast.error("You must add atleast one cart item");
+    
 
     dispatch(addToOrderHistory(cartItems));
     handleClearCart();

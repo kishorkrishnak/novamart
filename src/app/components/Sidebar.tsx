@@ -8,6 +8,10 @@ import { uid } from "react-uid";
 const Sidebar = () => {
   const categories = getCategories();
   const priceRanges = getPriceRange();
+  const selectedPriceRanges = useAppSelector(
+    (state) => state.nova.selectedPriceRanges
+  );
+
   const selectedCategory = useAppSelector(
     (state) => state.nova.selectedCategory
   );
@@ -39,6 +43,7 @@ const Sidebar = () => {
         <div key={uid(priceRange)} className="form-control">
           <label className="cursor-pointer label justify-start gap-3">
             <input
+              checked={selectedPriceRanges.includes(priceRange)}
               onChange={() => {
                 dispatch(togglePriceRange(priceRange));
               }}
