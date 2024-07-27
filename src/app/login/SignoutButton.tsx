@@ -32,7 +32,7 @@ const SignoutButton = () => {
       </div>
       <button
         onClick={handleSignOut}
-        className="btn btn-neutral text-base text-white px-6"
+        className="btn btn-error text-base text-white px-6"
       >
         Sign Out
       </button>

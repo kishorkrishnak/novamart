@@ -15,12 +15,10 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require('daisyui'),
-  ],
+  plugins: [require("daisyui")],
 
   daisyui: {
-    themes: [ "winter"],
+    themes: ["light"],
   },
 };
 export default config;

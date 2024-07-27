@@ -19,7 +19,7 @@ const Sidebar = () => {
 
   return (
     <div className="py-6 px-5 border border-gray-200 w-[280px] h-fit sticky top-[78px] hidden lg:block">
-      <h1 className="font-bold mb-3">CATEGORIES</h1>
+      <h1 className="font-bold mb-2">CATEGORIES</h1>
 
       {categories.map((category) => (
         <div key={uid(category)} className="form-control">
@@ -40,7 +40,7 @@ const Sidebar = () => {
         </div>
       ))}
 
-      <h1 className="font-bold mb-3 mt-3">Price</h1>
+      <h1 className="font-bold mb-2 mt-5">PRICE</h1>
 
       {priceRanges.map((priceRange) => (
         <div key={uid(priceRange)} className="form-control">

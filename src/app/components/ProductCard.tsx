@@ -19,7 +19,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product }) => {
         alt={product.title}
         width={500}
         height={500}
-        className="p-2 h-32 md:h-56 w-full object-contain scale-100 hover:scale-110 duration-500"
+        className="p-2 h-32 md:h-56 w-full object-contain"
         priority={true}
       />
 

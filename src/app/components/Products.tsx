@@ -72,7 +72,7 @@ const Products = () => {
       {loading ? (
         <ProductSkeltons />
       ) : (
-        <section className="mt-4 gap-1 grid md:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+        <section className="mt-5  gap-1 grid md:gap-6 grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
           {products.map((product) => (
             <ProductCard key={uid(product)} product={product} />
           ))}
