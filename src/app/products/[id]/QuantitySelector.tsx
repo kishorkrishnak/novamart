@@ -35,10 +35,10 @@ const QuantitySelector = ({
   };
 
   const handleAddToCart = () => {
-    
     dispatch(addToCart({ ...product, quantity }));
     toast.success("Product added to cart");
   };
+
   return (
     <div className="flex items-center justify-center gap-4">
       <div className="py-3 px-3 bg-white border border-gray-200 rounded-lg">
