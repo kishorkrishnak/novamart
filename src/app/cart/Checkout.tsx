@@ -22,7 +22,7 @@ const Checkout = ({ handleClearCart }: { handleClearCart: Function }) => {
   );
   const shippingAmount = totalAmount > 500 ? 5 : 0;
   return (
-    <div className="w-full lg:w-[400px] lg:w-[600px] bg-[#FAFAFA] py-6 px-3">
+    <div className="rounded-md w-full lg:w-[400px] lg:w-[600px] bg-[#FAFAFA] py-6 px-3">
       <h1 className="text-2xl font-bold">Cart totals</h1>
       <div className="border-b border-gray-400 pb-6 flex flex-col items-start justify-center gap-5 mt-5">
         <div className="text-lg font-medium flex items-start justify-start gap-3">

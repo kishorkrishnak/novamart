@@ -6,12 +6,16 @@ interface NovaState {
   user: User | null;
   cartItems: Product[];
   orderHistory: Product[];
+  selectedCategory: string | null;
+  selectedPriceRanges: string[];
 }
 
 const initialState: NovaState = {
   user: null,
   cartItems: [],
   orderHistory: [],
+  selectedCategory: null,
+  selectedPriceRanges: [],
 };
 
 const novaSlice = createSlice({
@@ -57,6 +61,18 @@ const novaSlice = createSlice({
       state.orderHistory = [...state.orderHistory, ...payload];
     },
 
+    setSelectedCategory: (state, action: PayloadAction<string>) => {
+      state.selectedCategory = action.payload;
+    },
+
+    togglePriceRange: (state, action: PayloadAction<string>) => {
+      const priceRange = action.payload;
+      if (state.selectedPriceRanges.includes(priceRange)) {
+        state.selectedPriceRanges = state.selectedPriceRanges.filter(
+          (cat) => cat !== priceRange
+        );
+      } else state.selectedPriceRanges.push(priceRange);
+    },
     removeFromOrderHistory: (state, action: PayloadAction<number>) => {
       const productId = action.payload;
       state.orderHistory = state.orderHistory.filter(
@@ -76,6 +92,8 @@ export const {
   decrementQuantity,
   addToOrderHistory,
   removeFromOrderHistory,
+  setSelectedCategory,
+  togglePriceRange,
 } = novaSlice.actions;
 
 export default novaSlice.reducer;

@@ -86,11 +86,11 @@ const Footer = () => {
           <input
             type="text"
             placeholder="email"
-            className="w-full px-5 py-2 bg-transparent border border-white"
+            className="rounded-t-md w-full px-5 py-2 bg-transparent border border-white"
           />
           <button
             type="button"
-            className="py-1 text-white text-sm border-x border-b w-full"
+            className="rounded-b-md py-1 text-white text-sm border-x border-b w-full"
           >
             Subscribe
           </button>

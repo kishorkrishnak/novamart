@@ -1,5 +1,5 @@
 "use client";
-import getBannerData from "@/utils/getBannerData";
+import { getBannerData } from "@/utils/getBannerData";
 import { useState } from "react";
 import { HiArrowLeft, HiArrowRight } from "react-icons/hi";
 
@@ -51,13 +51,13 @@ const Hero = () => {
       <div className="z-40 w-fit mx-auto flex items-center justify-center gap-6 absolute bottom-[18%] md:bottom-[27%] left-0 right-0 ">
         <div
           onClick={decrementSlide}
-          className="cursor-pointer border border-black p-1 px-2 md:p-3 md:px-4 hover:bg-[#4F5866] hover:text-white duration-300"
+          className="rounded-md cursor-pointer border border-gray-500 p-1 px-2 md:p-3 md:px-4 hover:bg-[#4F5866] hover:text-white duration-300"
         >
           <HiArrowLeft />
         </div>
         <div
           onClick={incrementSlide}
-          className="cursor-pointer border border-black p-1 px-2 md:p-3 md:px-4 hover:bg-[#4F5866] hover:text-white duration-300"
+          className="rounded-md cursor-pointer border border-gray-500 p-1 px-2 md:p-3 md:px-4 hover:bg-[#4F5866] hover:text-white duration-300"
         >
           <HiArrowRight />
         </div>

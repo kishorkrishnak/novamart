@@ -56,9 +56,7 @@ const Navbar = () => {
                       height={30}
                       className="rounded-full"
                     />
-                    <p className="font-bold text-sm">
-                      {user?.name || "Login"}
-                    </p>
+                    <p className="font-bold text-sm">{user?.name || "Login"}</p>
                   </>
                 )}
               </div>
