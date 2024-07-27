@@ -54,10 +54,10 @@ const Footer = () => {
         <div className="flex flex-col items-start justify-center gap-3">
           <h1 className="text-2xl text-white font-semibold">Locate us</h1>
           <ul className="text-[#949494] flex flex-col items-start justify-center gap-2">
-            <li>Kasaragod, Kerala</li>
-            <li>Mobile: 9999999999</li>
+            <li>Kasaragod, Kerala, India</li>
+            <li>Mobile: +91 9999999999</li>
 
-            <li>Phone: 9999999999</li>
+            <li>Phone: +91 9999999998</li>
 
             <li>E-mail: novamart@gmail.com</li>
           </ul>
@@ -67,17 +67,17 @@ const Footer = () => {
           <h1 className="text-2xl text-white font-semibold">Links</h1>
           <ul className="text-[#949494] flex flex-col items-start justify-center gap-2">
             <li>
-              <Link href={"/"}>Home</Link>
+              <Link href={"/"}>Home Page</Link>
             </li>
             <li>
-              <Link href={"/login"}>Login</Link>
+              <Link href={"/login"}>Login Page</Link>
             </li>
 
             <li>
-              <Link href={"/cart"}>Cart</Link>
+              <Link href={"/cart"}>Your Cart</Link>
             </li>
             <li>
-              <Link href={"/orders"}>Orders</Link>
+              <Link href={"/orders"}>Your Orders</Link>
             </li>
           </ul>
         </div>
@@ -86,11 +86,11 @@ const Footer = () => {
           <input
             type="text"
             placeholder="email"
-            className="rounded-t-md w-full px-5 py-2 bg-transparent border border-white"
+            className="w-full px-5 py-2 bg-transparent border border-white"
           />
           <button
             type="button"
-            className="rounded-b-md py-1 text-white text-sm border-x border-b w-full"
+            className="py-1 text-white text-sm border-x border-b w-full"
           >
             Subscribe
           </button>

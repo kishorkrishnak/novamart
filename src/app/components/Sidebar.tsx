@@ -32,7 +32,10 @@ const Sidebar = () => {
               type="radio"
               className="radio radio-sm"
             />
-            <span className="label-text">{category}</span>
+            <span className="label-text">
+              {category.charAt(0).toUpperCase() +
+                category.slice(1, category.length)}
+            </span>
           </label>
         </div>
       ))}
