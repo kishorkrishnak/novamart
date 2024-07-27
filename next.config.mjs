@@ -18,6 +18,13 @@ const nextConfig = {
                 hostname: "lh3.googleusercontent.com",
                 pathname: '/a/**', // Adjust this pattern as necessary
 
+            },
+
+            {
+                protocol: 'https',
+                hostname: "amazonproone.vercel.app",
+                pathname: '/static/**', // Adjust this pattern as necessary
+
             }
         ],
     },

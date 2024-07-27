@@ -1,4 +1,4 @@
-const getBannerData = ():String[] =>
+const getBannerData = ():string[] =>
 {
     return  [
         "https://amazonproone.vercel.app/static/media/img2.bc1bdb910ead16c65197.jpg",
